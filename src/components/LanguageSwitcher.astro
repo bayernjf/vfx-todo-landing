@@ -1,0 +1,23 @@
+---
+import type { Lang } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+import { alternatePath } from '../i18n/utils';
+
+export interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const targetLang: Lang = lang === 'zh' ? 'en' : 'zh';
+const targetPath = alternatePath(lang, path);
+const label = ui[lang]['lang.switch'];
+const hreflang = targetLang === 'zh' ? 'zh-CN' : 'en-US';
+---
+<a
+  href={targetPath}
+  hreflang={hreflang}
+  class="inline-flex items-center gap-1 rounded-lg border border-slate-300 px-2.5 py-1.5 text-xs font-semibold text-ink-soft transition hover:border-brand hover:text-brand"
+  aria-label={label}
+>
+  {label}
+</a>

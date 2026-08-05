@@ -1,0 +1,61 @@
+---
+import type { Lang } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+import { localizedPath } from '../i18n/utils';
+import { getNavItems } from '../i18n/content';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+export interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const d = ui[lang];
+const navItems = getNavItems(lang).map((item) => ({
+  label: item.label,
+  href: localizedPath(lang, item.href),
+  base: item.href,
+}));
+const githubLabel = d['nav.github'];
+const homeHref = localizedPath(lang, '/');
+const menuLabel = lang === 'zh' ? '菜单' : 'Menu';
+const isActive = (href: string) => {
+  if (href === homeHref) return path === homeHref;
+  return path === href || path.startsWith(href + '/');
+};
+---
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
+  <div class="container-prose flex h-14 items-center justify-between gap-4">
+    <a href={homeHref} class="flex items-center gap-2 font-bold text-ink">
+      <span class="inline-block h-6 w-6 rounded bg-brand"></span>
+      <span>VFX Todo</span>
+    </a>
+    <nav class="hidden items-center gap-1 md:flex">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`rounded px-3 py-1.5 text-sm font-medium transition ${isActive(item.href) ? 'text-brand' : 'text-ink-soft hover:text-brand'}`}
+        >{item.label}</a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-2">
+      <LanguageSwitcher lang={lang} path={path} />
+      <a
+        href="https://github.com/jiangfeng/vfx-todo"
+        class="hidden btn-ghost sm:inline-flex"
+        rel="noopener"
+      >{githubLabel}</a>
+    </div>
+  </div>
+  <details class="group md:hidden">
+    <summary class="flex cursor-pointer list-none items-center justify-between px-5 py-2 text-sm font-medium text-ink-soft">
+      <span>{menuLabel}</span>
+      <span class="transition group-open:rotate-180">▾</span>
+    </summary>
+    <nav class="flex flex-col gap-1 border-t border-slate-200 px-5 py-3">
+      {navItems.map((item) => (
+        <a href={item.href} class={`rounded px-2 py-1.5 text-sm ${isActive(item.href) ? 'text-brand' : 'text-ink-soft'}`}>{item.label}</a>
+      ))}
+    </nav>
+  </details>
+</header>
