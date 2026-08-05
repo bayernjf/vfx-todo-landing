@@ -1,0 +1,51 @@
+---
+import type { Lang } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+import { localizedPath } from '../i18n/utils';
+
+export interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const d = ui[lang];
+const downloadHref = localizedPath(lang, '/download');
+const featuresHref = localizedPath(lang, '/features');
+---
+<section class="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+  <div class="container-prose py-16 text-center sm:py-24">
+    <span class="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3 py-1 text-xs font-medium text-brand-dark">
+      {d['hero.badge']}
+    </span>
+    <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-6xl">
+      {d['hero.title']}
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+      {d['hero.subtitle']}
+    </p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a href={downloadHref} class="btn-primary">{d['cta.download']}</a>
+      <a href={featuresHref} class="btn-ghost">{d['cta.learn']}</a>
+    </div>
+    <dl class="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 border-y border-slate-200 py-6">
+      <div>
+        <dt class="text-2xl font-bold text-brand sm:text-3xl">{d['hero.effect_count']}</dt>
+      </div>
+      <div>
+        <dt class="text-2xl font-bold text-brand sm:text-3xl">{d['hero.platform']}</dt>
+      </div>
+      <div>
+        <dt class="text-2xl font-bold text-brand sm:text-3xl">{d['hero.opensource']}</dt>
+      </div>
+    </dl>
+    <div class="mt-12 overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+      <img
+        src="/screenshots/hero.jpg"
+        alt={lang === 'zh' ? 'VFX Todo 桌面应用与视觉特效预览' : 'VFX Todo desktop app with visual effects preview'}
+        width="1280"
+        height="720"
+        loading="eager"
+        class="w-full"
+      />
+    </div>
+  </div>
+</section>

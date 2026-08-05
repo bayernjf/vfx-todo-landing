@@ -1,0 +1,32 @@
+---
+import type { Lang } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+import { getFeatures } from '../i18n/content';
+import Icon from './Icon.astro';
+
+export interface Props {
+  lang: Lang;
+  variant?: 'full' | 'preview';
+}
+const { lang, variant = 'full' } = Astro.props;
+const d = ui[lang];
+const all = getFeatures(lang);
+const features = variant === 'preview' ? all.slice(0, 3) : all;
+---
+<section class="container-prose py-16">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-bold text-ink">{d['features.title']}</h2>
+    <p class="mt-3 text-ink-soft">{d['features.subtitle']}</p>
+  </div>
+  <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {features.map((f) => (
+      <div class="card">
+        <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand/10 text-brand">
+          <Icon name={f.icon} class="h-5 w-5" />
+        </div>
+        <h3 class="mt-4 text-lg font-semibold text-ink">{f.title}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-ink-soft">{f.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

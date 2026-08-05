@@ -1,0 +1,31 @@
+---
+import type { Lang } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+
+export interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const d = ui[lang];
+const stack = [
+  { name: 'Tauri v2', role: lang === 'zh' ? '桌面框架' : 'Desktop framework' },
+  { name: 'Rust', role: 'Backend' },
+  { name: 'React 18 + TypeScript', role: 'Frontend' },
+  { name: 'WebGL', role: lang === 'zh' ? '特效渲染' : 'Effects rendering' },
+  { name: 'Vite', role: 'Build tool' },
+  { name: 'Vitest + Playwright', role: 'Testing' },
+];
+---
+<section class="bg-slate-50 py-16">
+  <div class="container-prose">
+    <h2 class="text-center text-3xl font-bold text-ink">{d['about.techstack']}</h2>
+    <div class="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-3">
+      {stack.map((s) => (
+        <div class="card text-center">
+          <div class="font-semibold text-ink">{s.name}</div>
+          <div class="mt-1 text-xs text-ink-muted">{s.role}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
