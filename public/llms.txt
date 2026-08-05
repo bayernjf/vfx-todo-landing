@@ -1,0 +1,43 @@
+# VFX Todo
+
+> VFX Todo is a Tauri-based desktop todo application that triggers 8 types of WebGL visual effects when you complete tasks. Built with a React 18 + TypeScript frontend and a Rust backend. Supports macOS, Windows, and Linux. Open source under the MIT License.
+
+## Product Overview
+VFX Todo is a desktop todo app. When you complete a task, it triggers one of 8 visual effects — danmaku, particles, shatter, rain, fireworks, ripple, laser, glitch — rendered via WebGL shaders in a separate overlay window that does not affect the main UI. Built on Tauri v2.
+
+## Key Facts
+- Name: VFX Todo
+- Category: Desktop todo application with visual effects
+- Platforms: macOS, Windows, Linux
+- License: MIT (open source)
+- Price: Free
+- Tech stack: Tauri v2, Rust, React 18, TypeScript, WebGL, Vite, Vitest, Playwright
+- Data storage: JSON file in the system app data directory; Rust in-memory cache with 5-second background flush
+- Effects window: independent overlay window per display, labeled overlay-{screen_id}
+
+## Effects (8 types, routed by todo level)
+1. Danmaku — scrolling text trails
+2. Particle — particle burst
+3. Shatter — screen shatter
+4. Rain — digital rain
+5. Firework — fireworks
+6. Ripple — water ripple
+7. Laser — laser beams
+8. Glitch — glitch distortion
+
+## Personalization parameters
+- Due-time reminder presets
+- Repeat count (play count)
+- Play duration (non-danmaku effects)
+- Danmaku speed
+- Recurrence
+
+## Links
+- Home (中文): https://vfx-todo.pages.dev/
+- Home (English): https://vfx-todo.pages.dev/en
+- Features: https://vfx-todo.pages.dev/features
+- Download: https://vfx-todo.pages.dev/download
+- FAQ: https://vfx-todo.pages.dev/faq
+- About: https://vfx-todo.pages.dev/about
+- Sitemap: https://vfx-todo.pages.dev/sitemap-index.xml
+- GitHub: https://github.com/jiangfeng/vfx-todo
