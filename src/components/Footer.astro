@@ -27,6 +27,8 @@ const year = new Date().getFullYear();
         {navItems.map((item) => (
           <li><a href={item.href} class="text-ink-muted transition hover:text-brand">{item.label}</a></li>
         ))}
+        <li><a href={localizedPath(lang, '/privacy')} class="text-ink-muted transition hover:text-brand">{d['footer.privacy']}</a></li>
+        <li><a href={localizedPath(lang, '/terms')} class="text-ink-muted transition hover:text-brand">{d['footer.terms']}</a></li>
       </ul>
     </div>
     <div>

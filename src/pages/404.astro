@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ui } from '../i18n/ui';
+
+const lang = 'zh' as const;
+const d = ui[lang];
+const title = `404 — 页面不存在 — VFX Todo`;
+const description = '你访问的页面不存在，或者已经被移动。';
+---
+<BaseLayout lang={lang} title={title} description={description} path="/404">
+  <section class="container-prose py-24 text-center md:py-32">
+    <p class="font-mono text-sm uppercase tracking-widest text-brand">404</p>
+    <h1 class="mt-4 text-3xl font-bold text-ink sm:text-4xl">页面不存在</h1>
+    <p class="mt-3 text-ink-muted">{description}</p>
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <a href="/" class="btn-primary">回到首页</a>
+      <a href="/download" class="btn-ghost">{d['nav.download']}</a>
+    </div>
+  </section>
+</BaseLayout>
