@@ -7,7 +7,7 @@ import { softwareApplicationJsonLd } from '../../i18n/jsonld';
 const lang = 'en' as const;
 const d = ui[lang];
 const jsonLd = softwareApplicationJsonLd(lang);
-const title = `${d['nav.download']} — VFX Todo`;
+const title = `${d['nav.download']} | VFX Todo`;
 ---
 <BaseLayout lang={lang} title={title} description={d['download.subtitle']} path="/en/download" jsonLd={jsonLd}>
   <DownloadCards lang={lang} />

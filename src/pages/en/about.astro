@@ -8,7 +8,7 @@ import { aboutPageJsonLd } from '../../i18n/jsonld';
 const lang = 'en' as const;
 const d = ui[lang];
 const jsonLd = aboutPageJsonLd(lang);
-const title = `${d['nav.about']} — VFX Todo`;
+const title = `${d['nav.about']} | VFX Todo`;
 ---
 <BaseLayout lang={lang} title={title} description={d['about.subtitle']} path="/en/about" jsonLd={jsonLd}>
   <AboutContent lang={lang} />
