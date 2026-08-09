@@ -27,7 +27,10 @@ const isActive = (href: string) => {
 <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
   <div class="container-prose flex h-14 items-center justify-between gap-4">
     <a href={homeHref} class="flex items-center gap-2 font-bold text-ink">
-      <span class="inline-block h-6 w-6 rounded bg-brand"></span>
+      <svg viewBox="0 0 32 32" class="h-6 w-6" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#7c3aed" />
+        <path d="M9 16.5l4.5 4.5L23 11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
       <span>VFX Todo</span>
     </a>
     <nav class="hidden items-center gap-1 md:flex">
