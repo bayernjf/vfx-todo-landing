@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ui } from '../../i18n/ui';
+
+const lang = 'en' as const;
+const d = ui[lang];
+const title = `${d['footer.terms']} | VFX Todo`;
+const description = 'Terms of Service of VFX Todo: the agreement covering use of this site and its content.';
+---
+<BaseLayout lang={lang} title={title} description={description} path="/en/terms">
+  <section class="container-prose py-16">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="text-3xl font-bold text-ink sm:text-4xl">Terms of Service</h1>
+      <p class="mt-3 text-sm text-ink-muted">Last updated: August 7, 2026 · Effective: August 7, 2026</p>
+
+      <div class="prose-tight mt-8">
+        <h2>1. Acceptance</h2>
+        <p>
+          Welcome to the VFX Todo product introduction site (the "Site"). By accessing or using the Site you agree to be bound by these terms. If you do not agree, please do not use the Site.
+        </p>
+
+        <h2>2. Site Content</h2>
+        <p>
+          Content on the Site introduces the VFX Todo product, including screenshots and download instructions, and is provided "as is". It may change as the product evolves. Feature descriptions and installer information defer to the actual releases in the GitHub repository. We strive for accuracy but make no express or implied warranties regarding completeness or timeliness.
+        </p>
+
+        <h2>3. Intellectual Property</h2>
+        <p>
+          VFX Todo is an open-source project; its source code is released under the MIT License declared in the repository. The Site's copy, design, and branding belong to the project team and may not be used commercially without permission.
+        </p>
+
+        <h2>4. Acceptable Use</h2>
+        <p>
+          Do not use the Site in ways that could harm or disrupt its operation or infringe on others' rights, including malicious scraping, injection attacks, or impersonation of the Site.
+        </p>
+
+        <h2>5. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by law, the Site is not liable for any indirect, incidental, or consequential damages arising from use of or inability to use its content, including downloading and installing VFX Todo.
+        </p>
+
+        <h2>6. Changes</h2>
+        <p>
+          These terms may be updated; changes will be posted on this page. Continued use of the Site constitutes acceptance of the updated terms.
+        </p>
+
+        <h2>7. Contact</h2>
+        <p>
+          Questions can be raised via Issues on our
+          <a href="https://github.com/bayernjf/vfx-todo" target="_blank" rel="noopener noreferrer" class="font-medium text-brand hover:text-brand-dark">GitHub repository</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

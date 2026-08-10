@@ -16,7 +16,10 @@ const year = new Date().getFullYear();
   <div class="container-prose grid grid-cols-1 gap-8 py-12 sm:grid-cols-3">
     <div>
       <div class="flex items-center gap-2 font-bold text-ink">
-        <span class="inline-block h-6 w-6 rounded bg-brand"></span>
+        <svg viewBox="0 0 32 32" class="h-6 w-6" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#7c3aed" />
+          <path d="M9 16.5l4.5 4.5L23 11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
         <span>VFX Todo</span>
       </div>
       <p class="mt-3 text-sm text-ink-muted">{d['footer.tagline']}</p>
@@ -27,13 +30,15 @@ const year = new Date().getFullYear();
         {navItems.map((item) => (
           <li><a href={item.href} class="text-ink-muted transition hover:text-brand">{item.label}</a></li>
         ))}
+        <li><a href={localizedPath(lang, '/privacy')} class="text-ink-muted transition hover:text-brand">{d['footer.privacy']}</a></li>
+        <li><a href={localizedPath(lang, '/terms')} class="text-ink-muted transition hover:text-brand">{d['footer.terms']}</a></li>
       </ul>
     </div>
     <div>
       <h3 class="mb-3 text-sm font-semibold text-ink">{d['footer.resources']}</h3>
       <ul class="space-y-2 text-sm">
         <li><a href="https://github.com/bayernjf/vfx-todo" target="_blank" rel="noopener noreferrer" class="text-ink-muted transition hover:text-brand">GitHub</a></li>
-        <li><a href="https://bayjf.pages.dev" target="_blank" rel="noopener noreferrer" class="text-ink-muted transition hover:text-brand">BayJF</a></li>
+        <li><a href="https://bayjf.com" target="_blank" rel="noopener noreferrer" class="text-ink-muted transition hover:text-brand">BayJF</a></li>
         <li><a href="/llms.txt" class="text-ink-muted transition hover:text-brand">llms.txt</a></li>
         <li><a href="/sitemap-index.xml" class="text-ink-muted transition hover:text-brand">Sitemap</a></li>
       </ul>

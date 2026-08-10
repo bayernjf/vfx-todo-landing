@@ -7,7 +7,7 @@ import { faqPageJsonLd } from '../../i18n/jsonld';
 const lang = 'en' as const;
 const d = ui[lang];
 const jsonLd = faqPageJsonLd(lang);
-const title = `${d['nav.faq']} — VFX Todo`;
+const title = `${d['nav.faq']} | VFX Todo`;
 ---
 <BaseLayout lang={lang} title={title} description={d['faq.subtitle']} path="/en/faq" jsonLd={jsonLd}>
   <FaqList lang={lang} />

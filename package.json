@@ -5,19 +5,22 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/shot.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "shot": "node scripts/shot.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/mdx": "^7.0.5",
     "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/tailwind": "^6.0.2",
-    "astro": "^5.18.2",
-    "tailwindcss": "^3.4.0"
+    "@bay/landing-ui": "github:bayernjf/landing-ui#v1.1.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "typescript": "^5.6.0"
+    "typescript": "^5.6.0",
+    "playwright": "^1.62.1"
   }
 }
