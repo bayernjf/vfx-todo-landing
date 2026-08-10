@@ -9,7 +9,7 @@ VFX Todo 是一款基于 Tauri 的桌面待办应用,完成任务时触发 8 种
 - **样式**:Tailwind CSS ^3.4.0(@astrojs/tailwind ^6.0.2,`applyBaseStyles: false`)
 - **SEO**:@astrojs/sitemap ^3.7.3(hreflang 由 BaseLayout 手动输出)
 - **类型检查**:TypeScript ^5.6.0 + @astrojs/check ^0.9.10
-- **i18n**:中英双语,自研字典方案(`src/i18n/` 下的 `ui.ts`、`content.ts`、`utils.ts`、`jsonld.ts`);中文为根路径,英文使用 `/en` 前缀(`prefixDefaultLocale: false`)
+- **i18n**:中英双语,自研字典方案(`src/i18n/` 下的 `ui.ts`、`content.ts`、`utils.ts`、`jsonld.ts`);英文为根路径,中文使用 `/zh` 前缀(`prefixDefaultLocale: false`)
 
 ## 快速开始
 
@@ -32,7 +32,7 @@ vfx-todo-landing/
 │   ├── components/          # 页面组件(Hero、FeatureGrid、EffectGrid、DownloadCards、FAQ 等)
 │   ├── i18n/                # 中英字典、页面内容、路径工具与 JSON-LD
 │   ├── layouts/             # BaseLayout(SEO meta、hreflang alternate)
-│   ├── pages/               # 路由:中文根路径 + en/ 英文镜像
+│   ├── pages/               # 路由:英文根路径 + zh/ 中文镜像
 │   └── styles/              # global.css(Tailwind)
 ├── astro.config.mjs         # Astro 配置(site、sitemap、mdx、tailwind、i18n)
 ├── tailwind.config.mjs      # Tailwind 主题(brand/ink 配色、darkMode: class)
@@ -42,17 +42,17 @@ vfx-todo-landing/
 
 ## 路由说明
 
-中文页面位于根路径,英文页面位于 `/en` 前缀下,两者一一对应:
+英文页面位于根路径,中文页面位于 `/zh` 前缀下,两者一一对应:
 
-| 中文路径 | 英文路径 | 页面 |
+| 英文路径 | 中文路径 | 页面 |
 |---------|---------|------|
-| `/` | `/en` | 首页 |
-| `/features` | `/en/features` | 功能特性 |
-| `/download` | `/en/download` | 下载 |
-| `/faq` | `/en/faq` | 常见问题 |
-| `/about` | `/en/about` | 关于 |
-| `/privacy` | `/en/privacy` | 隐私政策 |
-| `/terms` | `/en/terms` | 服务条款 |
+| `/` | `/zh` | 首页 |
+| `/features` | `/zh/features` | 功能特性 |
+| `/download` | `/zh/download` | 下载 |
+| `/faq` | `/zh/faq` | 常见问题 |
+| `/about` | `/zh/about` | 关于 |
+| `/privacy` | `/zh/privacy` | 隐私政策 |
+| `/terms` | `/zh/terms` | 服务条款 |
 | `/404` | — | 404 页面 |
 
 ## 部署

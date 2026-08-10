@@ -49,6 +49,6 @@ export function aboutPageJsonLd(lang: Lang) {
     '@type': 'AboutPage',
     name: d['about.title'],
     description: d['about.subtitle'],
-    url: lang === 'zh' ? `${SITE_URL}/about` : `${SITE_URL}/en/about`,
+    url: lang === 'en' ? `${SITE_URL}/about` : `${SITE_URL}/zh/about`,
   };
 }

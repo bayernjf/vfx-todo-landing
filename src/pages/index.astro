@@ -7,17 +7,11 @@ import FaqList from '../components/FaqList.astro';
 import { ui } from '../i18n/ui';
 import { softwareApplicationJsonLd } from '../i18n/jsonld';
 
-const lang = 'zh' as const;
+const lang = 'en' as const;
 const d = ui[lang];
 const jsonLd = softwareApplicationJsonLd(lang);
 ---
-<BaseLayout
-  lang={lang}
-  title={d['site.title']}
-  description={d['site.desc']}
-  path="/"
-  jsonLd={jsonLd}
->
+<BaseLayout lang={lang} title={d['site.title']} description={d['site.desc']} path="/" jsonLd={jsonLd}>
   <HeroSection lang={lang} />
   <EffectGrid lang={lang} />
   <FeatureGrid lang={lang} variant="preview" />

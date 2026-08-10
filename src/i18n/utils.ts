@@ -7,8 +7,8 @@ export function t(lang: Lang, key: UIKey): string {
 
 /** Resolve a base path (e.g. '/features') to its localized form for the given language. */
 export function localizedPath(lang: Lang, path: string): string {
-  if (lang === 'en') {
-    return path === '/' ? '/en' : `/en${path}`;
+  if (lang === 'zh') {
+    return path === '/' ? '/zh' : `/zh${path}`;
   }
   return path;
 }
@@ -18,11 +18,11 @@ export function localizedPath(lang: Lang, path: string): string {
  * in the OTHER language (used for hreflang alternates and the language switcher).
  */
 export function alternatePath(currentLang: Lang, path: string): string {
-  if (currentLang === 'zh') {
-    // currently zh -> produce en path
-    return path === '/' ? '/en' : `/en${path}`;
+  if (currentLang === 'en') {
+    // currently en -> produce zh path
+    return path === '/' ? '/zh' : `/zh${path}`;
   }
-  // currently en -> strip /en prefix to get zh path
-  if (path === '/en' || path === '/en/') return '/';
-  return path.replace(/^\/en/, '');
+  // currently zh -> strip /zh prefix to get en path
+  if (path === '/zh' || path === '/zh/') return '/';
+  return path.replace(/^\/zh/, '');
 }

@@ -5,12 +5,12 @@ import TechStack from '../../components/TechStack.astro';
 import { ui } from '../../i18n/ui';
 import { aboutPageJsonLd } from '../../i18n/jsonld';
 
-const lang = 'en' as const;
+const lang = 'zh' as const;
 const d = ui[lang];
 const jsonLd = aboutPageJsonLd(lang);
 const title = `${d['nav.about']} | VFX Todo`;
 ---
-<BaseLayout lang={lang} title={title} description={d['about.subtitle']} path="/en/about" jsonLd={jsonLd}>
+<BaseLayout lang={lang} title={title} description={d['about.subtitle']} path="/zh/about" jsonLd={jsonLd}>
   <AboutContent lang={lang} />
   <TechStack lang={lang} />
 </BaseLayout>
