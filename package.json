@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/shot.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "shot": "node scripts/shot.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "typescript": "^5.6.0"
+    "typescript": "^5.6.0",
+    "playwright": "^1.62.1"
   }
 }
