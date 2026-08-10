@@ -75,7 +75,7 @@ export const ui = {
     'footer.privacy': '隐私政策',
     'footer.terms': '服务条款',
     'lang.switch': 'English',
-    'lang.path': '/en',
+    'lang.path': '/',
   },
   en: {
     'site.title': 'VFX Todo | A Desktop Todo App with Visual Effects',
@@ -143,7 +143,7 @@ export const ui = {
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
     'lang.switch': '中文',
-    'lang.path': '/',
+    'lang.path': '/zh',
   },
 } as const;
 

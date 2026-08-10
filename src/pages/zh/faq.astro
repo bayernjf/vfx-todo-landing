@@ -4,11 +4,11 @@ import FaqList from '../../components/FaqList.astro';
 import { ui } from '../../i18n/ui';
 import { faqPageJsonLd } from '../../i18n/jsonld';
 
-const lang = 'en' as const;
+const lang = 'zh' as const;
 const d = ui[lang];
 const jsonLd = faqPageJsonLd(lang);
 const title = `${d['nav.faq']} | VFX Todo`;
 ---
-<BaseLayout lang={lang} title={title} description={d['faq.subtitle']} path="/en/faq" jsonLd={jsonLd}>
+<BaseLayout lang={lang} title={title} description={d['faq.subtitle']} path="/zh/faq" jsonLd={jsonLd}>
   <FaqList lang={lang} />
 </BaseLayout>

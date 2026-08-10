@@ -4,11 +4,11 @@ import DownloadCards from '../../components/DownloadCards.astro';
 import { ui } from '../../i18n/ui';
 import { softwareApplicationJsonLd } from '../../i18n/jsonld';
 
-const lang = 'en' as const;
+const lang = 'zh' as const;
 const d = ui[lang];
 const jsonLd = softwareApplicationJsonLd(lang);
 const title = `${d['nav.download']} | VFX Todo`;
 ---
-<BaseLayout lang={lang} title={title} description={d['download.subtitle']} path="/en/download" jsonLd={jsonLd}>
+<BaseLayout lang={lang} title={title} description={d['download.subtitle']} path="/zh/download" jsonLd={jsonLd}>
   <DownloadCards lang={lang} />
 </BaseLayout>
