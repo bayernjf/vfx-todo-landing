@@ -1,4 +1,5 @@
 ---
+import BayjfLink from '@bay/landing-ui/components/BayjfLink.astro';
 import type { Lang } from '../i18n/ui';
 import { ui } from '../i18n/ui';
 import { localizedPath } from '../i18n/utils';
@@ -43,12 +44,7 @@ const isActive = (href: string) => {
     </nav>
     <div class="flex items-center gap-2">
       <LanguageSwitcher lang={lang} path={path} />
-      <a
-        href="https://bayjf.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hidden text-sm font-medium text-ink-soft hover:text-brand sm:inline-flex"
-      >BayJF</a>
+      <BayjfLink size={18} class="hidden text-sm font-medium text-ink-soft hover:text-brand sm:inline-flex" />
       <a
         href="https://github.com/bayernjf/vfx-todo"
         class="hidden btn-ghost sm:inline-flex"
