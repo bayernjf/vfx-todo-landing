@@ -1,5 +1,6 @@
 ---
 import BayjfLink from '@bay/landing-ui/components/BayjfLink.astro';
+import StarOnGithub from '@bay/landing-ui/components/StarOnGithub.astro';
 import type { Lang } from '../i18n/ui';
 import { ui } from '../i18n/ui';
 import { localizedPath } from '../i18n/utils';
@@ -38,8 +39,8 @@ const year = new Date().getFullYear();
     <div>
       <h3 class="mb-3 text-sm font-semibold text-ink">{d['footer.resources']}</h3>
       <ul class="space-y-2 text-sm">
-        <li><a href="https://github.com/bayernjf/vfx-todo" target="_blank" rel="noopener noreferrer" class="text-ink-muted transition hover:text-brand">GitHub</a></li>
         <li><BayjfLink size={16} class="text-ink-muted transition hover:text-brand" /></li>
+        <li><StarOnGithub href="https://github.com/bayernjf/vfx-todo" size={14} class="text-ink-muted" /></li>
         <li><a href="/llms.txt" class="text-ink-muted transition hover:text-brand">llms.txt</a></li>
         <li><a href="/sitemap-index.xml" class="text-ink-muted transition hover:text-brand">Sitemap</a></li>
       </ul>

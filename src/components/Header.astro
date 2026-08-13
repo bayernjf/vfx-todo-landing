@@ -1,5 +1,6 @@
 ---
 import BayjfLink from '@bay/landing-ui/components/BayjfLink.astro';
+import StarOnGithub from '@bay/landing-ui/components/StarOnGithub.astro';
 import type { Lang } from '../i18n/ui';
 import { ui } from '../i18n/ui';
 import { localizedPath } from '../i18n/utils';
@@ -17,7 +18,6 @@ const navItems = getNavItems(lang).map((item) => ({
   href: localizedPath(lang, item.href),
   base: item.href,
 }));
-const githubLabel = d['nav.github'];
 const homeHref = localizedPath(lang, '/');
 const menuLabel = lang === 'zh' ? '菜单' : 'Menu';
 const isActive = (href: string) => {
@@ -45,11 +45,7 @@ const isActive = (href: string) => {
     <div class="flex items-center gap-2">
       <LanguageSwitcher lang={lang} path={path} />
       <BayjfLink size={18} class="hidden text-sm font-medium text-ink-soft hover:text-brand sm:inline-flex" />
-      <a
-        href="https://github.com/bayernjf/vfx-todo"
-        class="hidden btn-ghost sm:inline-flex"
-        rel="noopener"
-      >{githubLabel}</a>
+      <StarOnGithub href="https://github.com/bayernjf/vfx-todo" size={15} class="hidden text-ink-soft sm:inline-flex" />
     </div>
   </div>
   <details class="group md:hidden">
