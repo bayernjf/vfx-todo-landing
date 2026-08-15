@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 // hreflang alternates are emitted per-page in BaseLayout via <link rel="alternate">,
 // so the sitemap integration only needs to produce a basic sitemap-index.xml.
 export default defineConfig({
-  site: 'https://vfx-todo.pages.dev',
+  site: 'https://vfx-todo.bayjf.com',
   integrations: [sitemap(), mdx()],
   vite: {
     plugins: [tailwindcss()],

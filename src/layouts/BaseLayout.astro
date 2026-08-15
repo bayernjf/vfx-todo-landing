@@ -24,7 +24,7 @@ const {
   jsonLd = [],
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://vfx-todo.pages.dev');
+const site = Astro.site ?? new URL('https://vfx-todo.bayjf.com');
 const canonicalURL = new URL(path, site).href;
 const ogImageURL = new URL(ogImage, site).href;
 const altZh = lang === 'zh' ? path : alternatePath(lang, path);

@@ -33,11 +33,11 @@ VFX Todo is a desktop todo app. When you complete a task, it triggers one of 8 v
 - Recurrence
 
 ## Links
-- Home (中文): https://vfx-todo.pages.dev/zh
-- Home (English): https://vfx-todo.pages.dev/
-- Features: https://vfx-todo.pages.dev/features
-- Download: https://vfx-todo.pages.dev/download
-- FAQ: https://vfx-todo.pages.dev/faq
-- About: https://vfx-todo.pages.dev/about
-- Sitemap: https://vfx-todo.pages.dev/sitemap-index.xml
+- Home (中文): https://vfx-todo.bayjf.com/zh
+- Home (English): https://vfx-todo.bayjf.com/
+- Features: https://vfx-todo.bayjf.com/features
+- Download: https://vfx-todo.bayjf.com/download
+- FAQ: https://vfx-todo.bayjf.com/faq
+- About: https://vfx-todo.bayjf.com/about
+- Sitemap: https://vfx-todo.bayjf.com/sitemap-index.xml
 - GitHub: https://github.com/jiangfeng/vfx-todo
