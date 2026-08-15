@@ -1,16 +1,20 @@
 ---
 import type { Lang } from '../i18n/ui';
 import { ui } from '../i18n/ui';
+import { releasesUrl } from '@bay/landing-ui/lib/releases';
 
 export interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const d = ui[lang];
+const REPO = 'bayernjf/vfx-todo';
+// href 是兜底，脚本会换成最新 release 里对应的安装包。Linux 尚无产物，保留“即将上线”
+const fallbackUrl = releasesUrl(REPO);
 const platforms = [
-  { name: d['download.mac'], tag: '.dmg / .app' },
-  { name: d['download.win'], tag: '.msi / .exe' },
-  { name: d['download.linux'], tag: '.AppImage / .deb' },
+  { name: d['download.mac'], tag: '.dmg / .app', key: 'mac', href: fallbackUrl },
+  { name: d['download.win'], tag: '.msi / .exe', key: 'win', href: fallbackUrl },
+  { name: d['download.linux'], tag: '.AppImage / .deb', key: null, href: null },
 ];
 const downloadIcon = '<path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>';
 ---
@@ -20,16 +24,43 @@ const downloadIcon = '<path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>';
     <p class="mt-3 text-ink-soft">{d['download.subtitle']}</p>
   </div>
   <div class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-3">
-    {platforms.map((p) => (
-      <div class="card flex flex-col items-center text-center">
-        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-brand">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true" set:html={downloadIcon}></svg>
-        </div>
-        <h3 class="mt-4 text-lg font-semibold text-ink">{p.name}</h3>
-        <span class="mt-1 font-mono text-xs text-ink-muted">{p.tag}</span>
-        <span class="mt-3 inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">{d['download.coming']}</span>
-      </div>
-    ))}
+    {platforms.map((p) => {
+      const Tag = p.href ? 'a' : 'div';
+      return (
+        <Tag
+          href={p.href ?? undefined}
+          data-download={p.key ?? undefined}
+          target={p.href ? '_blank' : undefined}
+          rel={p.href ? 'noopener noreferrer' : undefined}
+          class:list={['card flex flex-col items-center text-center', p.href && 'transition hover:border-brand hover:shadow-sm']}
+        >
+          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true" set:html={downloadIcon}></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold text-ink">{p.name}</h3>
+          <span class="mt-1 font-mono text-xs text-ink-muted">{p.tag}</span>
+          {p.href ? (
+            <span class="mt-3 inline-flex items-center rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">{d['download.get']}</span>
+          ) : (
+            <span class="mt-3 inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">{d['download.coming']}</span>
+          )}
+        </Tag>
+      );
+    })}
   </div>
   <p class="mx-auto mt-8 max-w-2xl text-center text-xs text-ink-muted">{d['download.note']}</p>
 </section>
+
+<script>
+  import { fetchLatestAssets, formatBytes } from '@bay/landing-ui/lib/releases';
+
+  const { assets } = await fetchLatestAssets('bayernjf/vfx-todo', { mac: '.dmg', win: '.exe' });
+
+  for (const [key, asset] of Object.entries(assets)) {
+    if (!asset) continue;
+    document.querySelectorAll(`[data-download="${key}"]`).forEach((el) => {
+      el.setAttribute('href', asset.url);
+      el.setAttribute('title', formatBytes(asset.size));
+    });
+  }
+</script>

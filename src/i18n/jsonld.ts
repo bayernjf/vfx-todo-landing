@@ -1,7 +1,7 @@
 import { ui, type Lang } from './ui';
 import { getFaqs } from './content';
 
-const SITE_URL = 'https://vfx-todo.pages.dev';
+const SITE_URL = 'https://vfx-todo.bayjf.com';
 
 /** SoftwareApplication schema — used on home, features, download pages. */
 export function softwareApplicationJsonLd(lang: Lang) {
